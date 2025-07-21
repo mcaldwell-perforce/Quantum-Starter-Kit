@@ -44,5 +44,9 @@ public class CommonStepsDefs {
 		else if (AppiumUtils.getAppiumDriver() instanceof AndroidDriver)
 			ConsoleUtils.logWarningBlocks("Driver is an instance of AndroidDriver");
 	}
-	
+
+	@When("^I maximize the browser$")
+	public void browserMaximize() {
+		new WebDriverTestBase().getDriver().manage().window().maximize();
+	}
 }
