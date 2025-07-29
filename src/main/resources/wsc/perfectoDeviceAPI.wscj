@@ -1,0 +1,19 @@
+{
+	"perfecto.scriptless.start": {
+		"headers":{
+			"Perfecto-Authorization": "${perfecto.capabilities.securityToken}"
+		},
+		"endPoint":"/api/v1/device-management/devices",
+		"baseUrl":"https://${perfecto.cloud.name}.app.perfectomobile.com",
+		"method":"POST",
+		"query-parameters": {},
+		"body": {
+			"device": {
+				"inUse": false,
+				"status": "connected",
+				"os": "${perfecto.device.os}"
+			}
+		},
+		"form-parameters":{}
+	}
+}

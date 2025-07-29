@@ -1,0 +1,22 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Expense Tracker Demo Suite" verbose="0" parallel="tests" thread-count="100">
+	<listeners>
+		<listener class-name="com.quantum.listeners.QuantumReportiumListenerPatch" />
+	</listeners>
+	<test name="Android Expense Tracker Test" enabled="true">
+		<parameter name="perfecto.capabilities.model" value="(?!.*Tab).*"/>
+		<parameter name="perfecto.capabilities.app" value="PUBLIC:ExpenseTracker/Native/ExpenseAppVer1.0.apk"/>
+		<parameter name="perfecto.capabilities.appPackage" value="io.perfecto.expense.tracker"/>
+		<parameter name="perfecto.additional.capabilities" value="{'perfecto:openDeviceTimeout':15}" />
+		<parameter name="env.resources" value="src/main/resources/android" />
+		<groups>
+			<run>
+				<include name="@expenseTrackerlogin" />
+			</run>
+		</groups>
+		<classes>
+			<class
+				name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory" />
+		</classes>
+	</test>
+</suite>

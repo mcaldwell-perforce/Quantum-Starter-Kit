@@ -1,0 +1,23 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="Database Suite" verbose="0" parallel="none">
+
+<!--	<parameter name="db.driver.class" value="com.mysql.jdbc.Driver" />-->
+<!--	<parameter name="db.connection.url" value="jdbc:mysql://localhost:3306/db" />-->
+<!--	<parameter name="db.user" value="username" />-->
+<!--	<parameter name="db.pwd" value="password" />-->
+
+	<parameter name="db.driver.class" value="org.sqlite.JDBC" />
+	<parameter name="db.connection.url" value="jdbc:sqlite:dbtest.db" />
+
+	<test name="Database Example" enabled="true">
+		<groups>
+			<run>
+				<include name="@updatedatabase" />
+			</run>
+		</groups>
+		<classes>
+			<class
+				name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory" />
+		</classes>
+	</test>
+</suite>

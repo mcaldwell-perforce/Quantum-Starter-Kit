@@ -1,0 +1,16 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="webservice Suite" verbose="0" parallel="none">
+
+	<test name="Webservice Sample" enabled="true">
+		<parameter name="perfecto.scripless.testpath" value="PRIVATE:mlbdemo.xml" />
+		<groups>
+			<run>
+				<include name="@scriptlessrun" />
+			</run>
+		</groups>
+		<classes>
+			<class
+				name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory" />
+		</classes>
+	</test>
+</suite>

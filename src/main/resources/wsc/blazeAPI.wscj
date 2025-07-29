@@ -1,0 +1,89 @@
+{
+	"blaze.runscope.trigger": {
+		"headers":{
+			"Authorization": "Bearer ${blaze.runscope.authtoken}"
+		},
+		"endPoint":"/radar/${blaze.runscope.triggerToken}/trigger",
+		"baseUrl":"https://api.runscope.com",
+		"method":"GET",
+		"query-parameters": {},
+		"body": "",
+		"form-parameters":{}
+	},
+	"blaze.runscope.testrun": {
+		"headers":{
+			"Authorization": "Bearer ${blaze.runscope.authtoken}"
+		},
+		"endPoint":"/buckets/${blaze.runscope.bucketId}/tests/${blaze.runscope.testId}/results/${blaze.runscope.testRunId}",
+		"baseUrl":"https://api.runscope.com",
+		"method":"GET",
+		"query-parameters": {},
+		"body": "",
+		"form-parameters":{}
+	},
+	"blaze.tdm.generatefile": {
+		"headers":{
+			"Authorization": "Basic ${blaze.tdm.authtoken}",
+			"accept": "text/csv",
+			"Content-Type": "application/json"
+		},
+		"endPoint":"/api/v1/workspaces/${blaze.tdm.workspace}/testdata/generatefile",
+		"baseUrl":"https://tdm.blazemeter.com",
+		"method":"POST",
+		"query-parameters": {},
+		"body": {
+			"data": {
+				"type": "datamodel",
+				"attributes": {
+					"model": {
+						"id": "datamodel/PetStore",
+						"title": "Pet Store",
+						"description": "A Pet Store model",
+						"kind": "tdm",
+						"entities": {
+							"pet": {
+								"type": "object",
+								"repeat": 1,
+								"properties": {
+									"name": {
+										"type": "string"
+									},
+									"age": {
+										"type": "integer"
+									},
+									"email": {
+										"type": "string"
+									}
+								},
+								"requirements": {
+									"name": "randText(5, 10)",
+									"email": "$name + '@google.com'"
+								}
+							},
+							"user": {
+								"type": "object",
+								"repeat": 1,
+								"properties": {
+									"name": {
+										"type": "string"
+									},
+									"ownerOf": {
+										"type": "string"
+									}
+								},
+								"requirements": {
+									"name": "randText(5, 10)",
+									"ownerOf": "${pet.name}"
+								}
+							}
+						}
+					},
+					"context": {
+						"csvs": []
+					}
+				}
+			}
+		},
+		"form-parameters":{}
+	}
+}

@@ -1,0 +1,14 @@
+{
+  "get.users.list": {
+    "headers":{},
+    "endPoint":"/services/users",
+    "baseUrl":"https://${perfecto.cloud.name}.perfectomobile.com",
+    "method":"GET",
+    "query-parameters":{
+      "operation":"list",
+      "securityToken":"${perfecto.capabilities.securityToken}"
+    },
+    "body":"",
+    "form-parameters":{}
+  }
+}

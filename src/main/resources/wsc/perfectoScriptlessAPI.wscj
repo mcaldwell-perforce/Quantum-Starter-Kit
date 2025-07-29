@@ -1,0 +1,27 @@
+{
+	"perfecto.scriptless.start": {
+		"headers":{},
+		"endPoint":"/services/executions",
+		"baseUrl":"https://${perfecto.cloud.name}.perfectomobile.com",
+		"method":"GET",
+		"query-parameters": {
+			"operation": "execute",
+			"scriptKey": "${scriptless.test.repoLocator}",
+			"securityToken": "${perfecto.capabilities.securityToken}"
+		},
+		"body":"",
+		"form-parameters":{}
+	},
+	"perfecto.scriptless.status": {
+		"headers":{},
+		"endPoint":"/services/executions/${scriptless.test.executionId}",
+		"baseUrl":"https://${perfecto.cloud.name}.perfectomobile.com",
+		"method":"GET",
+		"query-parameters":{
+			"operation":"status",
+			"securityToken":"${perfecto.capabilities.securityToken}"
+		},
+		"body":"",
+		"form-parameters":{}
+	}
+}

@@ -1,0 +1,20 @@
+<!DOCTYPE suite SYSTEM "http://testng.org/testng-1.0.dtd">
+<suite name="webservice Suite" verbose="0" parallel="none">
+
+	<parameter name="blaze.tdm.workspace" value="<<WORKSPACE>>"/>
+	<parameter name="blaze.tdm.authtoken" value="<<TDM_TOKEN>>" />
+	<parameter name="blaze.runscope.authtoken" value="<<RUNSCOPE_TOKEN" />
+	<test name="Webservice Sample" enabled="true">
+		<parameter name="blaze.runscope.triggertoken" value="<<RUNSCOPE_TRIGGER"/>
+		<groups>
+			<run>
+				<include name="@generatefile" />
+<!--				<include name="@triggerblaze" />-->
+			</run>
+		</groups>
+		<classes>
+			<class
+				name="com.qmetry.qaf.automation.step.client.gherkin.GherkinScenarioFactory" />
+		</classes>
+	</test>
+</suite>
